@@ -1,0 +1,38 @@
+.NavbarItems{
+    background: rgb(24, 94, 39);
+    height: 80px;
+    width: 100vw;    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-self: center;
+    padding: 0 25px;
+    font: 1.2rem;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    
+}
+
+.hortifruti{
+    color: white;
+    padding-right: 150px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+
+}
+
+
+
+.link{
+    text-decoration: none;
+    color: white;
+}
+
+
+.fa{
+    margin-left: 10px;
+}
+
