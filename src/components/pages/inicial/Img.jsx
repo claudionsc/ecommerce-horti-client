@@ -7,7 +7,7 @@ export function Img({src}){
 }
 
 const StyleImg = styled.img`
-    width: 100px;
-    height: 100px;
+    width: 50%;
+    height: 50%;
 
 `

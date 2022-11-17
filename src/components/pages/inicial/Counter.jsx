@@ -1,42 +1,35 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { StyleDivBtn } from "../../../styles";
 import { StyleBtn } from "../../../styles";
 import { StyleNum } from "../../../styles";
 
 
 
-export default class Counter extends React.Component {
 
-    constructor() {
-        super();
-        this.state = {
-            contador: 0,
-        };
+
+
+
+export default function Counter() {
+
+    const [ numero, setNumero ] = useState(0)
+
+
+    const HandleSub = () => {
+        useEffect(() => {
+            setNumero(numero - 1)
+        })
     }
 
-    decrement(event){
-        this.setState({
-            contador: this.state.contador -1,
-
-        });
-        event.preventDefault();
-    }
-
-    increment(event){
-        this.setState({
-            contador: this.state.contador +1,
-        });
-        event.preventDefault();
-    }
-
-    render(){
-        
+    const HandleSoma= () => {
+        useEffect(() => {
+            setNumero(numero + 1)
+        }, [])
+    }    
         return (
             <StyleDivBtn>
-                <StyleBtn onClick={this.decrement.bind(this)}>-</StyleBtn>
-                <StyleNum>{this.state.contador}</StyleNum>
-                <StyleBtn onClick={this.increment.bind(this)}>+</StyleBtn>
+                <StyleBtn onClick={HandleSub()}>-</StyleBtn>
+                <StyleNum>{numero}</StyleNum>
+                <StyleBtn onClick={HandleSoma()}>+</StyleBtn>
             </StyleDivBtn>
         )
     }
-}

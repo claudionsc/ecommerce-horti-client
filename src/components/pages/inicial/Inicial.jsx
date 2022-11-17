@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import {FruitsStyleForm} from '../../../styles/FruitsStyle'
-import  Counter  from './Counter'
+// import  Counter from './Counter'
+import Contador from './Counter'
 import { Img } from './Img'
 import { Fruit } from '../../../styles/FruitsStyle'
 import { CarrinhoBtn } from '../../../styles'
@@ -52,9 +53,9 @@ export default function Inicial() {
                                 <Fruit key={fruta.id}>
                                     <Img src={fruta.imagem}/>
                                     <p><strong>{fruta.name}</strong></p>
-                                    {/* <p>{`Vazio`}</p> */}
                                         <CounterCart>
-                                            <Counter />
+                                            {/* <Counter /> */}
+                                            <Contador />
                                             <CarrinhoBtn  onClick={e => addItemsCart(fruta)} type="button" value="Adicionar ao carrinho" />
                                         </CounterCart>
                                 </Fruit>
