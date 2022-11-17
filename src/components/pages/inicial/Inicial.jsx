@@ -31,34 +31,30 @@ export default function Inicial() {
     const [frutas, setFrutas] = useState([])
     
     useEffect(() => {
-        axios.get("http://localhost:5000/api")
+        axios.get("http://localhost:5000/frutas")
             
         .then(response => {            
-            setFrutas(response.data);
+            setFrutas(response.data.frutas);
         });
         
         
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     
 
 
  return (
             <div>
-                
-                            
-           
                     <FruitsStyleForm>
 
                         {frutas.map(fruta => {
 
                             return(                                        
                                 <Fruit key={fruta.id}>
-                                    <Img />
+                                    <Img src={fruta.imagem}/>
                                     <p><strong>{fruta.name}</strong></p>
                                     {/* <p>{`Vazio`}</p> */}
                                         <CounterCart>
-                                            <Counter />                                            
+                                            <Counter />
                                             <CarrinhoBtn  onClick={e => addItemsCart(fruta)} type="button" value="Adicionar ao carrinho" />
                                         </CounterCart>
                                 </Fruit>

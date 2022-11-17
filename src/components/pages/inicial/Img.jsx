@@ -1,9 +1,8 @@
-import img from '../../img/maca.jpg'
 import styled from 'styled-components'
 
-export function Img(){
+export function Img({src}){
     return(
-        <StyleImg src={img}/>
+        <StyleImg src={src}/>
     )
 }
 
