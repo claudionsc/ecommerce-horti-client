@@ -6,9 +6,8 @@ export const StyleDivBtn = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: red;
    
-
-
 `
 
 export const StyleBtn = styled.button`

@@ -8,6 +8,5 @@ export function Img({src}){
 
 const StyleImg = styled.img`
     width: 50%;
-    height: 50%;
 
 `

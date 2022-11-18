@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
-import {FruitsStyleForm} from '../../../styles/FruitsStyle'
-// import  Counter from './Counter'
-import Contador from './Counter'
+import {FruitsStyleDiv} from '../../../styles/FruitsStyle'
+import  Counter from './Counter'
 import { Img } from './Img'
 import { Fruit } from '../../../styles/FruitsStyle'
 import { CarrinhoBtn } from '../../../styles'
@@ -14,20 +13,6 @@ import axios from "axios"
 
 export default function Inicial() {
     
-    
-        const [ cartItems, setCartitems ] = useState([])
-
-        useEffect(() => {
-            console.log(cartItems)
-        },[cartItems]);
-
-        function addItemsCart(id, event){
-             setCartitems([...cartItems, id])
-             localStorage.setItem('fruta', JSON.stringify(cartItems))
-
-            //  setCartitems(event.id)
-        }
-    
 
     const [frutas, setFrutas] = useState([])
     
@@ -37,15 +22,13 @@ export default function Inicial() {
         .then(response => {            
             setFrutas(response.data.frutas);
         });
-        
-        
     }, [])
     
 
 
  return (
             <div>
-                    <FruitsStyleForm>
+                    <FruitsStyleDiv>
 
                         {frutas.map(fruta => {
 
@@ -54,15 +37,14 @@ export default function Inicial() {
                                     <Img src={fruta.imagem}/>
                                     <p><strong>{fruta.name}</strong></p>
                                         <CounterCart>
-                                            {/* <Counter /> */}
-                                            <Contador />
-                                            <CarrinhoBtn  onClick={e => addItemsCart(fruta)} type="button" value="Adicionar ao carrinho" />
+                                            <Counter />
+                                            <CarrinhoBtn>Adicionar ao carrinho</CarrinhoBtn>
                                         </CounterCart>
                                 </Fruit>
                             )
                         })}    
                                          
-                    </FruitsStyleForm>
+                    </FruitsStyleDiv>
                  
             </div>
         )

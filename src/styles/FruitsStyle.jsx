@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FruitsStyleForm = styled.form`
+export const FruitsStyleDiv = styled.div`
     
     width: 80vw;
     height: auto;
@@ -23,7 +23,7 @@ export const FruitsStyleForm = styled.form`
 
 `
 
-export const Fruit = styled.label`
+export const Fruit = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;

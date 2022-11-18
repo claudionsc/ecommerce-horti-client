@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-export const CarrinhoBtn = styled.input`
+
+ const CarrinhoBtnStyle = styled.button`
     background-color:rgb(24, 94, 39);
     color: white;
     border: none;
@@ -13,3 +14,9 @@ export const CarrinhoBtn = styled.input`
         transform: scale(110%);
     }
 `
+export const CarrinhoBtn = ({children}) => {
+
+    return(
+        <CarrinhoBtnStyle>{children}</CarrinhoBtnStyle>
+    )
+}

@@ -1,4 +1,4 @@
-import {FruitsStyleForm} from "../../../styles/FruitsStyle";
+import {FruitsStyleDiv} from "../../../styles/FruitsStyle";
 import { createContext, useState, useEffect } from "react";
 import { Fruit } from '../../../styles/FruitsStyle'
 import { Img } from '../../pages/inicial/Img'
@@ -38,7 +38,7 @@ function Cart({children}){
 
         <div id="MainCart">
         <h1>Carrinho ativo</h1>
-            <FruitsStyleForm>
+            <FruitsStyleDiv>
             {children}
 
                 {cart.map(item => {
@@ -54,7 +54,7 @@ function Cart({children}){
                     )
                 })}    
                                 
-            </FruitsStyleForm>
+            </FruitsStyleDiv>
         </div>
     )
 }
