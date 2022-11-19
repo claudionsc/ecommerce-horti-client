@@ -1,61 +1,47 @@
-import {FruitsStyleDiv} from "../../../styles/FruitsStyle";
-import { createContext, useState, useEffect } from "react";
-import { Fruit } from '../../../styles/FruitsStyle'
-import { Img } from '../../pages/inicial/Img'
-// import axios from "axios"
-import  "../../../styles/Global.css"
+import { useDispatch, useSelector } from "react-redux"
+import { useEffect } from "react";
+// import {FruitsStyleDiv} from "../../../styles/FruitsStyle";
+// import { Fruit } from "../../../styles/FruitsStyle";
+// import { Img } from "../inicial/Img";
+import  "../../../styles/Global.css";
 import '../../../styles/CartStyles.css'
 
-export const CartContext = createContext();
+import {showFrutas} from '../../../store'
 
 
 
-function Cart({children}){ 
 
-    
-    
+function Cart(){ 
 
-    const [cart, setCart] = useState([]) 
-    
-    
+    const showFruta = useSelector(state => state.frutas)
+    const dispatch = useDispatch()
+
+
     useEffect(() => {
-
-        var storedItems = localStorage.getItem('fruta')
-        
-        var arrayCart = JSON.parse(storedItems);
-        setCart(arrayCart)
-        console.log(arrayCart)
-        // console.log(cart)
-        
-        
-    }, [])
-    
-
-    function removeProduct(id) {}
+        dispatch(showFrutas())
+     }, [dispatch])
 
     
     return (
 
-        <div id="MainCart">
-        <h1>Carrinho ativo</h1>
-            <FruitsStyleDiv>
-            {children}
+        <p>{showFruta.nome}</p>
+        // <div id="MainCart">
+        //     <FruitsStyleDiv>
 
-                {cart.map(item => {
+        //         {showFrutas.map(fruta => {
 
-                    return(     
+        //             return(     
                                                           
-                        <Fruit key={item.div}>
-                            <Img />
-                            <p><strong>{item.name}</strong></p>
-                            {/* <p>{`Vazio`}</p> */}
+        //                 <Fruit key={showFrutas.id}>
+        //                     <Img rc={showFrutas.imagem} />
+        //                     <p><strong>{showFrutas.nome}</strong></p>
+        //                 </Fruit>
+        //             )
+        //         })}    
                                 
-                        </Fruit>
-                    )
-                })}    
-                                
-            </FruitsStyleDiv>
-        </div>
+        //     </FruitsStyleDiv>
+        // </div>
+
     )
 }
 

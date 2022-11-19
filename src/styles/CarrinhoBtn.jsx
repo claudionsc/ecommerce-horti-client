@@ -14,9 +14,9 @@ import styled from "styled-components";
         transform: scale(110%);
     }
 `
-export const CarrinhoBtn = ({children}) => {
+export const CarrinhoBtn = ({children, onClick}) => {
 
     return(
-        <CarrinhoBtnStyle>{children}</CarrinhoBtnStyle>
+        <CarrinhoBtnStyle onClick={onClick}>{children}</CarrinhoBtnStyle>
     )
 }
