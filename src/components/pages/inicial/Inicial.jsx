@@ -17,7 +17,7 @@ import axios from "axios"
 export default function Inicial() {
 
     const dispatch = useDispatch()
-    const qtdRef = React.createRef()
+    const qtdRef = useRef()
 
 
     const [frutas, setFrutas] = useState([])
@@ -31,7 +31,12 @@ export default function Inicial() {
             });
     }, [])
 
-    const FrutasCart = ['teste']
+    const FrutasCart = []
+    console.log(qtdRef.current)
+
+    const handleAddCart = (fruta) => {
+        dispatch(showFrutas(fruta))
+    }
 
 
 
@@ -47,13 +52,9 @@ export default function Inicial() {
                             <Img src={fruta.imagem} />
                             <h3><strong>{fruta.nome}</strong></h3>
                             <CounterCart>
-                                <Counter ref={qtdRef} />
+                                <Counter/>
                                 <CarrinhoBtn
-                                    onClick={() => {
-                                        FrutasCart.push(fruta)
-                                        dispatch(FrutasCart)
-                                        // console.log(FrutasCart)
-                                    }}
+                                    onClick={() => handleAddCart(fruta)}
                                 >Adicionar ao carrinho</CarrinhoBtn>
                             </CounterCart>
                         </Fruit>
