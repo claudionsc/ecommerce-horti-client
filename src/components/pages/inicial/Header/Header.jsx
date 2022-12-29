@@ -1,5 +1,5 @@
 // import { IconCart } from './icon'
-import React, { Component } from "react";
+import React from "react";
 import '../../../../styles/header.css'
 import CartIcon from "../../cart/CartIcon";
 import { Link } from "react-router-dom";
@@ -15,10 +15,10 @@ export default function Header () {
                 
                     <div className="redirect-links link">
                         Claudio Nascimento
-                            <a href="https://github.com/claudionsc" rel="noopener" target="_blank" className="navbar-logo link">
+                            <a href="https://github.com/claudionsc" rel="noreferrer" target="_blank" className="navbar-logo link">
                                 <i className="fa-brands fa fa-github"></i>
                             </a>
-                            <a href="https://www.linkedin.com/in/claudionsc/" rel="noopener" target="_blank" className="navbar-logo link">
+                            <a href="https://www.linkedin.com/in/claudionsc/" rel="noreferrer" target="_blank" className="navbar-logo link">
                                 <i class="fa-brands fa fa-linkedin"></i>
                             </a>                        
                     </div>

@@ -2,19 +2,22 @@ import { useEffect, useState, useRef } from "react";
 import { StyleDivBtn } from "../../../styles";
 import { StyleBtn } from "../../../styles";
 import { StyleNum } from "../../../styles";
+import { CounterCart } from "../../../styles/FruitsStyle";
 
+function NumberContainer({ value, qtd, ...props }) {
+    return (
+        <StyleNum {...props} type="text" value={value} qtd={qtd} onChange={console.log(qtd)} />
+    )
+}
 
+export default function Counter({ qtd, ...props }) {
 
-
-
-
-
-export default function Counter() {
     const [numero, setNumero] = useState(0)
+    // const [number, setNumber] = useState(0)
     const [color, setColor] = useState(null)
-    
+
     const refColor = useRef()
-    const refNumber = useRef()
+    const refNumber = useRef(null)
 
 
     const HandleSub = () => {
@@ -26,6 +29,7 @@ export default function Counter() {
         else {
             setNumero(numero - 1)
         }
+
     }
 
     const HandleSoma = () => {
@@ -35,13 +39,17 @@ export default function Counter() {
         } else {
             return
         }
+
     }
 
+
     return (
-        <StyleDivBtn>
-            <StyleBtn ref={refColor} onClick={HandleSub}>-</StyleBtn>
-            <StyleNum ref={refNumber}>{numero}</StyleNum>
-            <StyleBtn onClick={HandleSoma}>+</StyleBtn>
+        <StyleDivBtn qtd={numero}>
+            <StyleBtn type="button" ref={refColor} onClick={HandleSub} value="-" />
+            <NumberContainer value={numero} />
+            <StyleBtn type="button" onClick={HandleSoma} value="+" />
+
         </StyleDivBtn>
     )
+
 }

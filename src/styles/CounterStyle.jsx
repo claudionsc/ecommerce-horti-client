@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyleDivBtn = styled.div`
+export const StyleDivBtn = styled.form`
     width: 80%;
     height: 40%;
     display: flex;
@@ -9,7 +9,7 @@ export const StyleDivBtn = styled.div`
    
 `
 
-export const StyleBtn = styled.button`
+export const StyleBtn = styled.input`
     background-color: whitesmoke;
     border: none;
     width: 25%;
@@ -24,7 +24,7 @@ export const StyleBtn = styled.button`
     }
 
 `
-export const StyleNum = styled.span`
+export const StyleNum = styled.input`
     color: white;
     background-color: #a6a6a6;
     border: none;
