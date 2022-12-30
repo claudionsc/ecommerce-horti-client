@@ -43,7 +43,7 @@ export const Fruit = styled.div`
     }
 `
 
-export const CounterCart = styled.form`
+export const CounterCartS = styled.form`
     
     width: 90%;
     height: 20%;

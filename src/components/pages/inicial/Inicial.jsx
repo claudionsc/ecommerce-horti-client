@@ -1,7 +1,7 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useEffect, useState, useRef } from "react";
 import { useDispatch } from 'react-redux'
-import { FruitsStyleDiv } from '../../../styles/FruitsStyle'
+import { CounterCartS, FruitsStyleDiv } from '../../../styles/FruitsStyle'
 import Counter from './Counter'
 import { Img } from './Img'
 import { Fruit } from '../../../styles/FruitsStyle'
@@ -9,15 +9,58 @@ import { CarrinhoBtn } from '../../../styles'
 import { CounterCart } from '../../../styles/FruitsStyle'
 import { showFrutas } from '../../../store'
 import axios from "axios"
+import { StyleBtn } from "../../../styles";
+import { StyleNum } from "../../../styles";
+
+export const Contador = ({childToParent}) => {
+
+    const [numero, setNumero] = useState(0)
+    const [color, setColor] = useState(null)
+
+    const refColor = useRef()
+    const refNumber = useRef(1)
 
 
-const Contador = ({onSubmit, qtd, children, ...props }) => {
+    const HandleSub = () => {
+        if (numero <= 1) {
+            setColor(refColor.current.style.color = 'red')
+        } if (numero <= 0) {
+            return
+        }
+        else {
+            setNumero(numero - 1)
+        }
+
+    }
+
+    const HandleSoma = () => {
+        if (numero >= 0) {
+            setNumero(numero + 1)
+            setColor(refColor.current.style.color = 'black')
+        } else {
+            return
+        }
+
+    }
+
+    const dataN = refNumber.current.value 
+    const data = parseInt(dataN, 10)+1
+
+
+    
+
+    
 
     return (
-        <CounterCart onSubmit={onSubmit} qtd={qtd} {...props}>{children} {console.log(`CounterCart ${props}`)}</CounterCart>
-    )
+        <Counter>
+            <StyleBtn type="button" ref={refColor} onClick={HandleSub} value="-" />
+            <StyleNum ref={refNumber} qtd={numero} value={numero} onChange={console.log(data)}  />
+            <StyleBtn type="button" onClick={HandleSoma} value="+" />
+        </Counter>
 
+    )
 }
+
 
 export default function Inicial() {
 
@@ -25,7 +68,13 @@ export default function Inicial() {
 
 
     const [frutas, setFrutas] = useState([])
+    const [data, setData] = useState('')
 
+
+    const childToParent = (childdata) => {
+        setData(childdata)
+        dispatch(showFrutas(childdata))
+    }
     useEffect(() => {
         axios.get("http://localhost:5000/frutas")
 
@@ -37,8 +86,9 @@ export default function Inicial() {
 
     const handleAddCart = (fruta) => {
         dispatch(showFrutas(fruta))
-        
+
     }
+
 
 
     return (
@@ -51,13 +101,12 @@ export default function Inicial() {
                         <Fruit key={fruta.id}>
                             <Img src={fruta.imagem} />
                             <h3><strong>{fruta.nome}</strong></h3>
-                            <Contador onSubmit={() => console.log('teste')}>
-                                <Counter text={text} />
-                               
+                            <CounterCartS>
+                                <Contador childToParent={childToParent} />
                                 <CarrinhoBtn type="button" value={'Adicionar ao carrinho'}
-                                    text={'text'} onClick={() => handleAddCart(fruta)}
+                                 onClick={() => handleAddCart(fruta)}
                                 />
-                            </Contador>
+                            </CounterCartS>
                         </Fruit>
                     )
                 })}

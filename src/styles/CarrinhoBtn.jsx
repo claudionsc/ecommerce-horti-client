@@ -17,6 +17,8 @@ import styled from "styled-components";
 export const CarrinhoBtn = ({children, onClick, ...props}) => {
 
     return(
-        <CarrinhoBtnStyle onClick={onClick} {...props}>{console.log(props)}</CarrinhoBtnStyle>
+        <CarrinhoBtnStyle onClick={onClick} {...props}>
+            {/* {console.log(props)} */}
+        </CarrinhoBtnStyle>
     )
 }

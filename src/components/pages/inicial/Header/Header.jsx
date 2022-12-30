@@ -19,7 +19,7 @@ export default function Header () {
                                 <i className="fa-brands fa fa-github"></i>
                             </a>
                             <a href="https://www.linkedin.com/in/claudionsc/" rel="noreferrer" target="_blank" className="navbar-logo link">
-                                <i class="fa-brands fa fa-linkedin"></i>
+                                <i className="fa-brands fa fa-linkedin"></i>
                             </a>                        
                     </div>
                     

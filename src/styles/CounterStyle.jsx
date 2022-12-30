@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyleDivBtn = styled.form`
+export const StyleDivBtn = styled.div`
     width: 80%;
     height: 40%;
     display: flex;
