@@ -6,13 +6,13 @@ import Counter from './Counter'
 import { Img } from './Img'
 import { Fruit } from '../../../styles/FruitsStyle'
 import { CarrinhoBtn } from '../../../styles'
-import { CounterCart } from '../../../styles/FruitsStyle'
 import { showFrutas } from '../../../store'
+import { addQtd } from '../../../store';
 import axios from "axios"
 import { StyleBtn } from "../../../styles";
 import { StyleNum } from "../../../styles";
 
-export const Contador = ({childToParent}) => {
+export const Contador = ({ childToParent, ...props }) => {
 
     const [numero, setNumero] = useState(0)
     const [color, setColor] = useState(null)
@@ -43,18 +43,16 @@ export const Contador = ({childToParent}) => {
 
     }
 
-    const dataN = refNumber.current.value 
-    const data = parseInt(dataN, 10)+1
+    const dataN = refNumber.current.value
+    const data = parseInt(dataN, 10) + 1
 
 
-    
-
-    
 
     return (
-        <Counter>
+        <Counter {...props}>
+            {console.log(data)}
             <StyleBtn type="button" ref={refColor} onClick={HandleSub} value="-" />
-            <StyleNum ref={refNumber} qtd={numero} value={numero} onChange={console.log(data)}  />
+            <StyleNum ref={refNumber} value={numero} primary onChange={() => childToParent(data)} />
             <StyleBtn type="button" onClick={HandleSoma} value="+" />
         </Counter>
 
@@ -62,7 +60,7 @@ export const Contador = ({childToParent}) => {
 }
 
 
-export default function Inicial() {
+export default function Inicial({ qtd }) {
 
     const dispatch = useDispatch()
 
@@ -73,8 +71,9 @@ export default function Inicial() {
 
     const childToParent = (childdata) => {
         setData(childdata)
-        dispatch(showFrutas(childdata))
     }
+
+
     useEffect(() => {
         axios.get("http://localhost:5000/frutas")
 
@@ -89,6 +88,8 @@ export default function Inicial() {
 
     }
 
+    console.log(data)
+
 
 
     return (
@@ -102,9 +103,10 @@ export default function Inicial() {
                             <Img src={fruta.imagem} />
                             <h3><strong>{fruta.nome}</strong></h3>
                             <CounterCartS>
-                                <Contador childToParent={childToParent} />
+                                <Contador childToParent={childToParent} qtd={childToParent} />
+                                {console.log(qtd)}
                                 <CarrinhoBtn type="button" value={'Adicionar ao carrinho'}
-                                 onClick={() => handleAddCart(fruta)}
+                                    onClick={() => handleAddCart(fruta)}
                                 />
                             </CounterCartS>
                         </Fruit>

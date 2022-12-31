@@ -6,6 +6,7 @@ const INITIAL_STATE = {
 }
 
 export const showFrutas = createAction('showFrutas')
+export const addQtd = createAction('addQtd')
 export const removeFrutas = createAction('showFrutas')
 
 const FrutasReducers = createReducer(INITIAL_STATE, {
@@ -23,6 +24,9 @@ const FrutasReducers = createReducer(INITIAL_STATE, {
             state.cartItems.push(qtd)
         }
 
+    },
+    [addQtd]: (state, action) => {
+        const addToCart = state.cartTotal.push(action.payload)
     }
     // [removeFrutas]: (state, action) =>
     //     state.filter((u) => u.id !== action.payload),
