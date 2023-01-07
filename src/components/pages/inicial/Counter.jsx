@@ -3,11 +3,11 @@ import { StyleDivBtn } from "../../../styles";
 
 
 
-export default function Counter({children}) {
+export default function Counter({children, qtd}) {
     
     return (
-        <StyleDivBtn>
-            {children}           
+        <StyleDivBtn qtd={qtd}>
+            {children}  
         </StyleDivBtn>
     )
 

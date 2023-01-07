@@ -26,7 +26,7 @@ const FrutasReducers = createReducer(INITIAL_STATE, {
 
     },
     [addQtd]: (state, action) => {
-        const addToCart = state.cartTotal.push(action.payload)
+        const addToCart = state.cartTotal.push(action)
     }
     // [removeFrutas]: (state, action) =>
     //     state.filter((u) => u.id !== action.payload),
@@ -48,6 +48,7 @@ const confirmMiddleware = store => next => action => {
     } else {
         next(action)
     }
+
 }
 
 export default configureStore({

@@ -7,18 +7,19 @@ import { Img } from './Img'
 import { Fruit } from '../../../styles/FruitsStyle'
 import { CarrinhoBtn } from '../../../styles'
 import { showFrutas } from '../../../store'
-import { addQtd } from '../../../store';
 import axios from "axios"
 import { StyleBtn } from "../../../styles";
 import { StyleNum } from "../../../styles";
 
-export const Contador = ({ childToParent, ...props }) => {
+export const Contador = ({qtd}) => {
+
+    const dispatch = useDispatch()
 
     const [numero, setNumero] = useState(0)
     const [color, setColor] = useState(null)
 
     const refColor = useRef()
-    const refNumber = useRef(1)
+    const refNumber = useRef(0)
 
 
     const HandleSub = () => {
@@ -29,6 +30,8 @@ export const Contador = ({ childToParent, ...props }) => {
         }
         else {
             setNumero(numero - 1)
+            refNumber.current = numero - 1
+
         }
 
     }
@@ -36,6 +39,8 @@ export const Contador = ({ childToParent, ...props }) => {
     const HandleSoma = () => {
         if (numero >= 0) {
             setNumero(numero + 1)
+            refNumber.current = numero + 1
+
             setColor(refColor.current.style.color = 'black')
         } else {
             return
@@ -43,36 +48,31 @@ export const Contador = ({ childToParent, ...props }) => {
 
     }
 
-    const dataN = refNumber.current.value
-    const data = parseInt(dataN, 10) + 1
 
+    const addQtd = () => {
+        dispatch(addQtd(refNumber))
 
+    }
 
     return (
-        <Counter {...props}>
-            {console.log(data)}
+        <div>
             <StyleBtn type="button" ref={refColor} onClick={HandleSub} value="-" />
-            <StyleNum ref={refNumber} value={numero} primary onChange={() => childToParent(data)} />
+            <StyleNum  ref={refNumber} value={numero} onChange={() => addQtd(refNumber)}/>
+            {console.log(refNumber)}
             <StyleBtn type="button" onClick={HandleSoma} value="+" />
-        </Counter>
+        </div>
+
 
     )
 }
 
 
-export default function Inicial({ qtd }) {
+export default function Inicial() {
 
     const dispatch = useDispatch()
 
 
     const [frutas, setFrutas] = useState([])
-    const [data, setData] = useState('')
-
-
-    const childToParent = (childdata) => {
-        setData(childdata)
-    }
-
 
     useEffect(() => {
         axios.get("http://localhost:5000/frutas")
@@ -88,8 +88,6 @@ export default function Inicial({ qtd }) {
 
     }
 
-    console.log(data)
-
 
 
     return (
@@ -103,10 +101,9 @@ export default function Inicial({ qtd }) {
                             <Img src={fruta.imagem} />
                             <h3><strong>{fruta.nome}</strong></h3>
                             <CounterCartS>
-                                <Contador childToParent={childToParent} qtd={childToParent} />
-                                {console.log(qtd)}
+                                <Contador/>                            
                                 <CarrinhoBtn type="button" value={'Adicionar ao carrinho'}
-                                    onClick={() => handleAddCart(fruta)}
+                                    onClick={() => handleAddCart({fruta})}
                                 />
                             </CounterCartS>
                         </Fruit>
