@@ -2,7 +2,7 @@ import { configureStore, createAction, createReducer } from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
     cartItems: [],
-    frutaTotal: [],
+    // frutaTotal: [],
     cartTotal: 0
 }
 
@@ -26,8 +26,9 @@ const FrutasReducers = createReducer(INITIAL_STATE, {
             const qtd = { ...action.payload, cartQtd: 1 };
             state.cartItems.push(qtd)
         }
-        // state.cartItems.push(action.payload)
 
+        state.cartTotal += 1
+        
 
     },
 
@@ -43,7 +44,7 @@ const FrutasReducers = createReducer(INITIAL_STATE, {
 
 
 const loggerMiddleware = store => next => action => {
-    console.log(action)
+    // console.log(action)
     next(action)
 }
 
