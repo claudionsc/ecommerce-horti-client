@@ -6,8 +6,9 @@ import styled from "styled-components";
     color: white;
     border: none;
     width: 80%;
-    height: 40%;
+    height: 2rem;
     transition: 200ms ease-in-out;
+    border-radius: 5px;
 
     &:hover{
         cursor: pointer;

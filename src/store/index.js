@@ -2,6 +2,7 @@ import { configureStore, createAction, createReducer } from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
     cartItems: [],
+    frutaTotal: [],
     cartTotal: 0
 }
 
@@ -12,22 +13,28 @@ export const removeFrutas = createAction('showFrutas')
 const FrutasReducers = createReducer(INITIAL_STATE, {
     [showFrutas]: (state, action) => {
 
+    // state.cartItems.push(action.payload)
+
+
         const itemIndex = state.cartItems.findIndex(
             (item) => item.id === action.payload.id
-        )
+        );        
 
         if (itemIndex >= 0) {
-            state.cartItems[itemIndex].cartTotal += 1
+            state.cartItems[itemIndex].cartQtd += 1
         } else {
 
-            const qtd = { ...action.payload, cartTotal: 1 }
+            const qtd = { ...action.payload, cartQtd: 1 };
             state.cartItems.push(qtd)
         }
 
+
     },
-    [addQtd]: (state, action) => {
-        const addToCart = state.cartTotal.push(action)
-    }
+
+
+    // [addQtd]: (state, action) => {
+    //     const addToCart = state.frutasTotal.push(...state, action)
+    // }
     // [removeFrutas]: (state, action) =>
     //     state.filter((u) => u.id !== action.payload),
 })
