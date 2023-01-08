@@ -47,7 +47,7 @@ export default function Inicial(){
                             <Img src={fruta.imagem} />
                             <h3><strong>{fruta.nome}</strong></h3>
                                 <CarrinhoBtn type="button" value={'Adicionar ao carrinho'}
-                                    onClick={() => handleAddCart({fruta})}
+                                    onClick={() => handleAddCart(fruta)}
                                 />
                         </Fruit>
                     )

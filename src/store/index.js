@@ -13,9 +13,8 @@ export const removeFrutas = createAction('showFrutas')
 const FrutasReducers = createReducer(INITIAL_STATE, {
     [showFrutas]: (state, action) => {
 
-    // state.cartItems.push(action.payload)
-
-
+        
+        
         const itemIndex = state.cartItems.findIndex(
             (item) => item.id === action.payload.id
         );        
@@ -23,10 +22,11 @@ const FrutasReducers = createReducer(INITIAL_STATE, {
         if (itemIndex >= 0) {
             state.cartItems[itemIndex].cartQtd += 1
         } else {
-
+            
             const qtd = { ...action.payload, cartQtd: 1 };
             state.cartItems.push(qtd)
         }
+        // state.cartItems.push(action.payload)
 
 
     },
