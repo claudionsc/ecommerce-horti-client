@@ -1,8 +1,8 @@
 import React from 'react'
 import { useEffect, useState } from "react";
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { CounterCartS, FruitsStyleDiv } from '../../../styles/FruitsStyle'
-import Counter from './Counter'
+import { useNavigate } from 'react-router-dom';
 import { Img } from './Img'
 import { Fruit } from '../../../styles/FruitsStyle'
 import { CarrinhoBtn } from '../../../styles'
@@ -16,7 +16,8 @@ export default function Inicial(){
     
 
     const dispatch = useDispatch()
-
+    const navigate = useNavigate()
+    
 
     const [frutas, setFrutas] = useState([])
 
@@ -31,6 +32,7 @@ export default function Inicial(){
 
     const handleAddCart = (fruta) => {
         dispatch(showFrutas(fruta))
+        navigate("/cart")
 
     }
 

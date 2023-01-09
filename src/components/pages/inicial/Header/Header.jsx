@@ -10,7 +10,6 @@ export default function Header() {
 
     const cartQtd = useSelector((state) => state.frutas.cartTotal)
 
-    console.log(cartQtd)
 
     return (
         <nav className="NavbarItems">

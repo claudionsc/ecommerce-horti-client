@@ -1,7 +1,7 @@
 import { configureStore, createAction, createReducer } from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
-    cartItems: [],
+    cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : [],
     // frutaTotal: [],
     cartTotal: 0
 }
@@ -29,6 +29,7 @@ const FrutasReducers = createReducer(INITIAL_STATE, {
 
         state.cartTotal += 1
         
+        localStorage.setItem("cartItems", JSON.stringify(state.cartItems))
 
     },
 
