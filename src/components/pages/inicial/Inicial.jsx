@@ -48,7 +48,7 @@ export default function Inicial(){
                         <Fruit key={fruta.id}>
                             <Img src={fruta.imagem} />
                             <h3><strong>{fruta.nome}</strong></h3>
-                                <CarrinhoBtn type="button" value={'Adicionar ao carrinho'}
+                                <CarrinhoBtn style={{width: '80%'}} type="button" value={'Adicionar ao carrinho'}
                                     onClick={() => handleAddCart(fruta)}
                                 />
                         </Fruit>

@@ -5,7 +5,6 @@ import styled from "styled-components";
     background-color:rgb(24, 94, 39);
     color: white;
     border: none;
-    width: 80%;
     height: 2rem;
     transition: 200ms ease-in-out;
     border-radius: 5px;
@@ -15,11 +14,9 @@ import styled from "styled-components";
         transform: scale(110%);
     }
 `
-export const CarrinhoBtn = ({children, onClick, ...props}) => {
+export const CarrinhoBtn = ({children, onClick, width, ...props}) => {
 
     return(
-        <CarrinhoBtnStyle onClick={onClick} {...props}>
-            {/* {console.log(props)} */}
-        </CarrinhoBtnStyle>
+        <CarrinhoBtnStyle  onClick={onClick} {...props} />
     )
 }

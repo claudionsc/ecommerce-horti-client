@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-export function Img({src}){
+export function Img({src, ...props}){
     return(
-        <StyleImg src={src}/>
+        <StyleImg {...props} src={src}/>
     )
 }
 
