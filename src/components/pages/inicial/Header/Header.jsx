@@ -8,7 +8,7 @@ import { CartNumberIcon } from "./CartNumberIcon";
 
 export default function Header() {
 
-    const cartQtd = useSelector((state) => state.frutas.cartTotal)
+    const cartQtd = localStorage.getItem('cartTotal')
 
 
     return (
@@ -24,12 +24,13 @@ export default function Header() {
                 </a>
             </div>
 
+
             <Link to={"/"} className="hortifruti" >Hortifruti</Link>
-            <Link to={"/cart"} ><CartIcon name="cartIcon" color="#ffffff" /></Link>
-            <CartNumberIcon>
-                {cartQtd}
-            </CartNumberIcon>
-            
+            <div >
+                <Link className="cartIcon" count={cartQtd} to={"/cart"} ><CartIcon   name="cartIcon" color="#ffffff" /></Link>
+            </div>
+
+
 
         </ nav>
 

@@ -8,16 +8,19 @@ const INITIAL_STATE = {
 
 export const showFrutas = createAction('showFrutas')
 export const addQtd = createAction('addQtd')
-export const removeFrutas = createAction('showFrutas')
+export const removeFrutas = createAction('removeFrutas')
+export const cleanCart = createAction('cleanCart')
+export const decreaseCart = createAction('decreaseCart')
+export const getTotals = createAction('getTotals')
 
 const FrutasReducers = createReducer(INITIAL_STATE, {
     [showFrutas]: (state, action) => {
 
-        
-        
+
+
         const itemIndex = state.cartItems.findIndex(
             (item) => item.id === action.payload.id
-        );        
+        );
 
         if (itemIndex >= 0) {
             state.cartItems[itemIndex].cartQtd += 1
@@ -26,19 +29,65 @@ const FrutasReducers = createReducer(INITIAL_STATE, {
             const qtd = { ...action.payload, cartQtd: 1 };
             state.cartItems.push(qtd)
         }
-
-        state.cartTotal += 1
         
+
+
         localStorage.setItem("cartItems", JSON.stringify(state.cartItems))
+        localStorage.setItem("cartTotal", JSON.stringify(state.cartTotal))
 
     },
 
+    [removeFrutas]: (state, action) => {
+        const nextCartItem = state.cartItems.filter(
+            cartItem => cartItem.id !== action.payload.id
+        )
+        state.cartItems = nextCartItem
 
-    // [addQtd]: (state, action) => {
-    //     const addToCart = state.frutasTotal.push(...state, action)
-    // }
-    // [removeFrutas]: (state, action) =>
-    //     state.filter((u) => u.id !== action.payload),
+        localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
+        
+
+    },
+
+    [decreaseCart]: (state, action) => {
+        const itemIndex = state.cartItems.findIndex(
+            cartItem => cartItem.id === action.payload.id 
+        )
+
+        if(state.cartItems[itemIndex].cartQtd > 1){
+            state.cartItems[itemIndex].cartQtd -= 1
+            
+        } else if (state.cartItems[itemIndex].cartQtd === 1){
+
+            const nextCartItem = state.cartItems.filter(
+                cartItem => cartItem.id !== action.payload.id
+            )
+            state.cartItems = nextCartItem
+        }
+        localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
+        
+    },
+    [cleanCart]: (state, action) => {
+        state.cartItems = []
+        state.cartTotal = 0
+        localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
+    },
+    [getTotals]: (state, action) => {
+        const { qtd } = state.cartItems.reduce(
+            (cartTotal, cartItem) => {
+                const { cartQtd } = cartItem;
+                cartTotal.qtd += cartQtd
+
+                return cartTotal
+            },
+            {
+                qtd: 0
+            }
+        );
+        state.cartTotal = qtd
+        localStorage.setItem('cartTotal', JSON.stringify(state.cartTotal))
+
+    }
+
 })
 
 

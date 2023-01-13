@@ -5,6 +5,7 @@ import { CounterCartS, FruitsStyleDiv } from '../../../styles/FruitsStyle'
 import { useNavigate } from 'react-router-dom';
 import { Img } from './Img'
 import { Fruit } from '../../../styles/FruitsStyle'
+import Header from './Header/Header';
 import { CarrinhoBtn } from '../../../styles'
 import { showFrutas } from '../../../store'
 import axios from "axios"
@@ -40,6 +41,7 @@ export default function Inicial(){
 
     return (
         <div>
+              <Header />
             <FruitsStyleDiv>
 
                 {frutas.map(fruta => {

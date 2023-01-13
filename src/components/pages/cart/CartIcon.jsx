@@ -15,7 +15,8 @@ CartIcon.propTypes = {
 };
 
 const IconStyled = styled.svg`
-    width: 30px;
+    width: 1.8vw;
+
     
    
 `

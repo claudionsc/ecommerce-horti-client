@@ -7,10 +7,29 @@ body{
     justify-content: center;        
 }
 
+.cartIcon{
+    width: 10vw;
+    height: 5vh;
+}
+.cartIcon::before{
+
+        content: attr(count);
+        position: relative;
+        top: -3vh;
+        right: -2.5vw;
+        padding: 1px 5px;
+        border-radius: 50%;
+        background-color: red;
+        color: white;
+        font-size: 1rem;
+        width: 30px;
+        height: 30px;
+        text-decoration: none;
+}
+
 
 #MainCart{
     background-color: white;
-    margin-top: 80px;
     height: auto;
     width: 100vw;
     padding: 0 2vw;
@@ -19,6 +38,18 @@ body{
 .cartVazio{
     height: 100vh;
     width: 100%;
-    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     
+}
+
+.start-shopping{
+   text-decoration: none;
+   height: 5vh;
+   display: flex;
+   align-items: center;
+   text-align: center
+   
 }
