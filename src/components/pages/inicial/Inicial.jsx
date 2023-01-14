@@ -33,7 +33,7 @@ export default function Inicial(){
 
     const handleAddCart = (fruta) => {
         dispatch(showFrutas(fruta))
-        navigate("/cart")
+        // navigate("/cart")
 
     }
 
@@ -41,7 +41,6 @@ export default function Inicial(){
 
     return (
         <div>
-              <Header />
             <FruitsStyleDiv>
 
                 {frutas.map(fruta => {

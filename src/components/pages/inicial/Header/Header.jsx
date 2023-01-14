@@ -2,13 +2,21 @@ import React from "react";
 import '../../../../styles/header.css'
 import CartIcon from "../../cart/CartIcon";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { CartNumberIcon } from "./CartNumberIcon";
+import { useEffect } from "react";
+import { getTotals } from "../../../../store";
 
 
 export default function Header() {
 
     const cartQtd = localStorage.getItem('cartTotal')
+    const cartItems = useSelector((state) => state.frutas)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getTotals())
+    }, [cartItems, dispatch])
 
 
     return (

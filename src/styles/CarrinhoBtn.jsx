@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 
- const CarrinhoBtnStyle = styled.input`
+ const CarrinhoBtnStyle = styled.button`
     background-color:rgb(24, 94, 39);
     color: white;
     border: none;
@@ -11,12 +11,11 @@ import styled from "styled-components";
 
     &:hover{
         cursor: pointer;
-        transform: scale(110%);
     }
 `
-export const CarrinhoBtn = ({children, onClick, width, ...props}) => {
+export const CarrinhoBtn = ({ onClick, value, ...props}) => {
 
     return(
-        <CarrinhoBtnStyle  onClick={onClick} {...props} />
+        <CarrinhoBtnStyle  onClick={onClick} {...props}>{value}</CarrinhoBtnStyle>
     )
 }

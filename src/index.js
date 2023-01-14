@@ -16,6 +16,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
     <BrowserRouter>
+    <Header />
       <Routes>
         <Route exact path='/' element={<App />} />
         <Route path='/cart' element={<Cart />} />

@@ -1,26 +1,23 @@
 import styled from "styled-components";
 
 export const StyleDivBtn = styled.div`
-    width: 80%;
-    height: 40%;
+    width: 30%;
+    height: 20%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+    border: 1px solid black;
+    border-radius: 5px;
    
 `
 
-export const StyleBtn = styled.input`
-    background-color: whitesmoke;
+export const StyleBtn = styled.button`
     border: none;
-    width: 25%;
-    height: 100%;
-    text-align: center;
-    
-
-
+    background-color: white;
+    font-size: 1.5rem;
     &:hover{
         cursor: pointer;
-        transform: scale(110%);
+        
     }
 
 `
