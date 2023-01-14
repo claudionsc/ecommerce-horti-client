@@ -17,9 +17,6 @@ export const FruitsStyleDiv = styled.div`
     backdrop-filter: blur( 2.5px );
     -webkit-backdrop-filter: blur( 1.5px );
     border-radius: 10px;
-    
-
-    /* column-gap: 3rem; */
 
 `
 
@@ -35,21 +32,8 @@ export const Fruit = styled.div`
     background-color: white;
     border-radius: 16px;
 
-    
-
     &:hover{
-        scale: 110%;
+        scale: 105%;
     
     }
-`
-
-export const CounterCartS = styled.form`
-    
-    width: 90%;
-    height: 20%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
 `

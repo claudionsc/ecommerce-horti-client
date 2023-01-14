@@ -1,4 +1,4 @@
 
-export* from './CounterStyle'
-export* from './CarrinhoBtn'
-export* from './FormStyles'
+export* from '../components/Counter/CounterStyle'
+export* from '../components/CartBtn/CartBtn'
+

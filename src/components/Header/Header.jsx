@@ -1,11 +1,10 @@
 import React from "react";
-import '../../../../styles/header.css'
-import CartIcon from "../../cart/CartIcon";
+import '../../styles/header.css'
+import CartIcon from "../pages/cart/CartIcon";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { CartNumberIcon } from "./CartNumberIcon";
 import { useEffect } from "react";
-import { getTotals } from "../../../../store";
+import { getTotals } from "../../store";
 
 
 export default function Header() {

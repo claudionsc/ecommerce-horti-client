@@ -1,13 +1,10 @@
 import { useSelector, useDispatch } from "react-redux"
 import { Link } from "react-router-dom";
-import { FruitsStyleDiv } from "../../../styles/FruitsStyle";
-import { Fruit } from "../../../styles/FruitsStyle";
 import { Img } from "../inicial/Img";
 import "../../../styles/Global.css";
 import '../../../styles/CartStyles.css'
-
 import { cleanCart, decreaseCart, getTotals, removeFrutas, showFrutas } from '../../../store'
-import { CarrinhoBtn } from "../../../styles/CarrinhoBtn";
+import { CarrinhoBtn } from "../../CartBtn/CartBtn";
 import { useEffect } from "react";
 import { StyleBtn, StyleDivBtn } from "../../../styles";
 

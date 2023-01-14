@@ -21,13 +21,3 @@ export const StyleBtn = styled.button`
     }
 
 `
-export const StyleNum = styled.input`
-    color: white;
-    background-color: #a6a6a6;
-    border: none;
-    width: 50%;
-    padding: 2px;
-    text-align: center;
-    
-
-`

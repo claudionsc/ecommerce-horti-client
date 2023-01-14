@@ -2,10 +2,10 @@ import { configureStore, createAction, createReducer } from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
     cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : [],
-    // frutaTotal: [],
     cartTotal: 0
 }
 
+// ACTIONS 
 export const showFrutas = createAction('showFrutas')
 export const addQtd = createAction('addQtd')
 export const removeFrutas = createAction('removeFrutas')
@@ -13,10 +13,9 @@ export const cleanCart = createAction('cleanCart')
 export const decreaseCart = createAction('decreaseCart')
 export const getTotals = createAction('getTotals')
 
+// REDUCERS 
 const FrutasReducers = createReducer(INITIAL_STATE, {
     [showFrutas]: (state, action) => {
-
-
 
         const itemIndex = state.cartItems.findIndex(
             (item) => item.id === action.payload.id
@@ -29,8 +28,6 @@ const FrutasReducers = createReducer(INITIAL_STATE, {
             const qtd = { ...action.payload, cartQtd: 1 };
             state.cartItems.push(qtd)
         }
-        
-
 
         localStorage.setItem("cartItems", JSON.stringify(state.cartItems))
         localStorage.setItem("cartTotal", JSON.stringify(state.cartTotal))
@@ -42,9 +39,7 @@ const FrutasReducers = createReducer(INITIAL_STATE, {
             cartItem => cartItem.id !== action.payload.id
         )
         state.cartItems = nextCartItem
-
         localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
-        
 
     },
 
@@ -66,11 +61,13 @@ const FrutasReducers = createReducer(INITIAL_STATE, {
         localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
         
     },
+
     [cleanCart]: (state, action) => {
         state.cartItems = []
         state.cartTotal = 0
         localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
     },
+    
     [getTotals]: (state, action) => {
         const { qtd } = state.cartItems.reduce(
             (cartTotal, cartItem) => {
@@ -94,20 +91,17 @@ const FrutasReducers = createReducer(INITIAL_STATE, {
 
 
 const loggerMiddleware = store => next => action => {
-    // console.log(action)
     next(action)
 }
 
-const confirmMiddleware = store => next => action => {
-    if (action.type === removeFrutas.type) {
-        // if(window.confirm("Deseja realmente excluir?")){
-        next(action)
-        // }
-    } else {
-        next(action)
-    }
+// const confirmMiddleware = store => next => action => {
+//     if (action.type === removeFrutas.type) {
+//         next(action)
+//     } else {
+//         next(action)
+//     }
 
-}
+// }
 
 export default configureStore({
     reducer: {
@@ -115,5 +109,4 @@ export default configureStore({
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(loggerMiddleware)
-            .concat(confirmMiddleware)
 })
