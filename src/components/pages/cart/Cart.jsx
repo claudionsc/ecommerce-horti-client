@@ -45,8 +45,8 @@ function Cart() {
                     <h3>Seu carrinho está vazio</h3>
                     <div className="start-shopping">
                         <Link to="/">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16">
+                                <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
                             </svg>
                             <span style={{ paddingLeft: '10px' }}>Comece a comprar</span>
                         </Link>
@@ -57,7 +57,7 @@ function Cart() {
                     <section className="titles">
                         <h3 className="product-title">Produto</h3>
                         <h3 className="qtdF">Quantidade</h3>
-                    
+
                     </section>
                     <section className="carItems">
                         {cart?.map(cartItem => (
@@ -65,11 +65,11 @@ function Cart() {
                                 <div className="cart-product">
 
                                     <div>
-                                    <Img style={{ width: "20vh" }} src={cartItem.imagem} alt={cartItem.nome} />
+                                        <Img style={{ width: "20vh" }} src={cartItem.imagem} alt={cartItem.nome} />
                                         <h3>{cartItem.nome}</h3>
                                         <p>Família: {cartItem.familia}</p>
                                         <p>Ordem: {cartItem.ordem}</p>
-                                        <p className="remover"  onClick={() => handleRemoveFrutas(cartItem)}>Remover</p>
+                                        <p className="remover" onClick={() => handleRemoveFrutas(cartItem)}>Remover</p>
                                     </div>
 
                                     <StyleDivBtn>
@@ -82,15 +82,15 @@ function Cart() {
                         ))}
                     </section>
                     <div className="cart-sumary">
-                        <StyleDivBtn style={{width: '30%', height: '3rem', cursor:'pointer'}} onClick={() => handleCleanCart()} >Limpar Carrinho</StyleDivBtn>
+                        <StyleDivBtn style={{ width: '30%', height: '3rem', cursor: 'pointer' }} onClick={() => handleCleanCart()} >Limpar Carrinho</StyleDivBtn>
                         <div className="cart-checkout">
                             <CarrinhoBtn style={{ width: '10vw' }} value={'Checkout'} />
                             <div className="continue-shopping">
                                 <Link to="/">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16">
+                                        <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
                                     </svg>
-                                    <span style={{paddingLeft: '10px'}}>Continue comprando</span>
+                                    <span style={{ paddingLeft: '10px' }}>Continue comprando</span>
                                 </Link>
                             </div>
 
