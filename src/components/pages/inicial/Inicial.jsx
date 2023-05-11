@@ -19,8 +19,8 @@ export default function Inicial() {
     useEffect(() => {
         axios.get("https://horti-db.onrender.com/frutas")
 
-            .then(response => {
-                setFrutas(response.data.frutas);
+            .then(res => {
+                setFrutas(res.data.frutas);
             });
     }, [])
 
