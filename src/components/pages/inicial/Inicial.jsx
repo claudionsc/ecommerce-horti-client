@@ -17,7 +17,7 @@ export default function Inicial() {
     const [frutas, setFrutas] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:5000/frutas")
+        axios.get("https://horti-db.onrender.com/frutas")
 
             .then(response => {
                 setFrutas(response.data.frutas);
