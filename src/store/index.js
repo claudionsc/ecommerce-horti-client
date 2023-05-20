@@ -5,8 +5,11 @@ const INITIAL_STATE = {
     cartTotal: 0
 }
 
+const FRUTAS_STATE = []
+
 // ACTIONS 
 export const showFrutas = createAction('showFrutas')
+export const loadFrutas = createAction('loadFrutas')
 export const addQtd = createAction('addQtd')
 export const removeFrutas = createAction('removeFrutas')
 export const cleanCart = createAction('cleanCart')
@@ -33,6 +36,8 @@ const FrutasReducers = createReducer(INITIAL_STATE, {
         localStorage.setItem("cartTotal", JSON.stringify(state.cartTotal))
 
     },
+    
+    
 
     [removeFrutas]: (state, action) => {
         const nextCartItem = state.cartItems.filter(
@@ -87,6 +92,10 @@ const FrutasReducers = createReducer(INITIAL_STATE, {
 
 })
 
+const LoadFrutasReducer = createReducer(FRUTAS_STATE, {
+    [loadFrutas]: (state, action) => action.payload.frutas,
+})
+
 
 
 
@@ -105,7 +114,8 @@ const loggerMiddleware = store => next => action => {
 
 export default configureStore({
     reducer: {
-        frutas: FrutasReducers
+        frutas: FrutasReducers,
+        loadFrutas: LoadFrutasReducer
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(loggerMiddleware)

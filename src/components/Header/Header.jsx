@@ -9,9 +9,11 @@ import { getTotals } from "../../store";
 
 export default function Header() {
 
-    const cartQtd = localStorage.getItem('cartTotal')
     const cartItems = useSelector((state) => state.frutas)
+    const cartQtd = cartItems.cartTotal
     const dispatch = useDispatch()
+
+   
 
     useEffect(() => {
         dispatch(getTotals())
@@ -34,7 +36,7 @@ export default function Header() {
 
             <Link to={"/"} className="hortifruti" >Hortifruti</Link>
             <div >
-                <Link className="cartIcon" count={cartQtd} to={"/cart"} ><CartIcon   name="cartIcon" color="#ffffff" /></Link>
+                <Link className="cartIcon" to={"/cart"} ><p>{cartQtd}</p><CartIcon   name="cartIcon" color="#ffffff" /></Link>
             </div>
 
 

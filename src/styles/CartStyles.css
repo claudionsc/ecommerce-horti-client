@@ -12,23 +12,21 @@ body{
     width: 10vw;
     height: 5vh;
     text-decoration: none;
-}
-.cartIcon::before{
-
-        content: attr(count);
-        position: relative;
-        top: -3vh;
-        right: -2.5vw;
-        padding: 1px 5px;
-        border-radius: 50%;
-        background-color: red;
-        color: white;
-        font-size: 1rem;
-        width: 30px;
-        height: 30px;
-        text-decoration: none;
+   
 }
 
+.cartIcon p {
+    color: white;
+    font-weight: bold;
+    background-color: red;
+    padding: 4px;
+    font-size: .7rem;
+    text-align: center;
+    border-radius: 50%;
+    position: relative;
+    left: 15px;
+    top: 15px;
+}
 
 #MainCart{
     background-color: white;
