@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/ecommerce-horti-client/static/css/main.405e55ed.css",
+    "main.js": "/ecommerce-horti-client/static/js/main.105a0dac.js",
+    "static/media/Hortifruti.jpg": "/ecommerce-horti-client/static/media/Hortifruti.c841375c5192aa28ff26.jpg",
+    "index.html": "/ecommerce-horti-client/index.html",
+    "main.405e55ed.css.map": "/ecommerce-horti-client/static/css/main.405e55ed.css.map",
+    "main.105a0dac.js.map": "/ecommerce-horti-client/static/js/main.105a0dac.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.405e55ed.css",
+    "static/js/main.105a0dac.js"
+  ]
+}
