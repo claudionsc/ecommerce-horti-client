@@ -4,8 +4,6 @@ A proposta para este projeto é de um ecommerce, one o usuário pode selecionar 
 
 O site recebe os dados de uma api, conectada a um banco de dados  - [Ver o repositório do banco de dados](https://github.com/claudionsc/ecommerce-horti-server)
 
-[Ver site](https://claudionsc.github.io/ecommerce-horti-client/)
-
 <p align="center">
 <img width="870" src="src\assets\to_readme\hortifruti gif.gif">
 </p>
